@@ -17,7 +17,6 @@ echo "Repo sync ..."
 echo "Switch to master ..."
 ./repo start master --all
 
-
 echo "Check status of all repositories ..."
 ./repo status
 
@@ -27,6 +26,5 @@ virtualenv dev
 echo "Activate virtualenv ..."
 source ./dev/bin/activate
 
-echi "Pip install wishful ..."
+echo "Pip install wishful ..."
 pip install -U -r ./.repo/manifests/requirements.txt
-
