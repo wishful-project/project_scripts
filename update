@@ -21,25 +21,33 @@ if __name__ == "__main__":
             continue
 
         words = line.split(" ")
+
+        if words[1]=="scripts/":
+            project = None
+            continue
+
         if words[0]=="project":
             project = words[1]
             #print "Project:", project
         else:
             #print "changed"
-            if project not in changedProjects:
+            if project and project not in changedProjects:
                 changedProjects.append(project)
 
 
-    print "Updating projects: ",changedProjects
+    if len(changedProjects) > 0:
+        print "Updating projects: ",changedProjects
 
-    cmd = "pip install"
-    for proj in changedProjects:
-        cmd = cmd + " " + proj
+        cmd = "pip install"
+        for proj in changedProjects:
+            cmd = cmd + " " + proj
 
-    cmd = cmd + " --upgrade --no-deps"
-    print cmd, "\n"
-    time.sleep(1)
-    p = subprocess.Popen(cmd, shell=True)
-    p.communicate()
-    print "DONE"
-    sys.exit(0)
+        cmd = cmd + " --upgrade --no-deps"
+        print cmd, "\n"
+        time.sleep(1)
+        p = subprocess.Popen(cmd, shell=True)
+        p.communicate()
+        print "DONE"
+        sys.exit(0)
+    else:
+        print "Nothing to update"
