@@ -36,18 +36,18 @@ if __name__ == "__main__":
 
 
     if len(changedProjects) > 0:
-        print "Updating projects: ",changedProjects
+        print("Updating projects: ",changedProjects)
 
         cmd = "pip install"
         for proj in changedProjects:
             cmd = cmd + " " + proj
 
         cmd = cmd + " --upgrade --no-deps"
-        print cmd, "\n"
+        print(cmd, "\n")
         time.sleep(1)
         p = subprocess.Popen(cmd, shell=True)
         p.communicate()
-        print "DONE"
+        print("DONE")
         sys.exit(0)
     else:
-        print "Nothing to update"
+        print("Nothing to update")
