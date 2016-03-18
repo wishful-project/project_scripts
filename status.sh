@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "repo status"
-./repo status
+python2 ./repo status

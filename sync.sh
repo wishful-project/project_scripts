@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "repo sync"
-./repo sync
+python2 ./repo sync
 echo "Switch to master ..."
-./repo start master --all
+python2 ./repo start master --all

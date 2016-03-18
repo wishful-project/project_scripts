@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 import subprocess
@@ -8,7 +8,7 @@ import sys
 
 if __name__ == "__main__":
 
-    cmd_str = ['./repo', 'status', '-j1']
+    cmd_str = ['python2','./repo', 'status', '-j1']
     proc = subprocess.Popen(cmd_str, stdout=subprocess.PIPE)
     output = proc.stdout.read()
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     if len(changedProjects) > 0:
         print("Updating projects: ",changedProjects)
 
-        cmd = "pip install"
+        cmd = "pip3 install"
         for proj in changedProjects:
             cmd = cmd + " " + proj
 
